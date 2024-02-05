@@ -14,6 +14,10 @@ class Blog(models.Model):
     class Meta:
         ordering = ['date']
     
+    def get_absolute_url(self):
+        """Returns the url to access a particular language instance."""
+        return reverse('blog-detail', args=[str(self.id)])
+    
     def __str__(self):
             """String for representing the Model object."""
             return f'{self.title}'
